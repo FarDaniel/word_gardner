@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FlipButton">
+        <attr name="firstSide" format="integer" />
+        <attr name="secondSide" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="SearchSwipeScreenWidget">
+        <attr name="entityCount" format="integer" />
+    </declare-styleable>
+</resources>

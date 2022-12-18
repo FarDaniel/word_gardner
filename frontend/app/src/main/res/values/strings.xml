@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Szó tanuló</string>
+    <string name="chose_packs_to_make_a_folder">Válassz pár szókészletet, hogy mappába rakhasd őket.</string>
+    <string name="group_name">csoport név</string>
+    <string name="category">Kategória</string>
+    <string name="cancel">mégsem</string>
+    <string name="yes_for_sure">igen</string>
+    <string name="pack_name">Készlet név</string>
+    <string name="easy">Könnyű</string>
+    <string name="medium">Közepes</string>
+    <string name="hard">Nehéz</string>
+    <string name="done">Kész</string>
+    <string name="delete">Törlés</string>
+    <string name="fast">Gyors</string>
+    <string name="please_copy_the_text_here">Másold ide a szöveget, amiből automatikusan kiválaszthatjuk a szavakat:</string>
+    <string name="language_of_the_text">A szöveg nyelve:</string>
+    <string name="hungarian">Magyar</string>
+    <string name="add">Hozzáadás</string>
+    <string name="english">Angol</string>
+    <string name="hungarian_word">magyar szó</string>
+    <string name="english_word">angol szó</string>
+    <string name="view_coroutine_scope">coroutine_scope</string>
+    <string name="ok">OK</string>
+</resources>

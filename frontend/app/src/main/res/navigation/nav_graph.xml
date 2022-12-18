@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/landingPageFragment">
+    <fragment
+        android:id="@+id/editPackFragment"
+        android:name="aut.dipterv.word_gardner.ui.practice.screens.edit_pack.EditPackFragment"
+        android:label="EditPackFragment">
+        <action
+            android:id="@+id/action_editPackFragment_to_packSelectorFragment"
+            app:destination="@id/packSelectorFragment" />
+        <argument
+            android:name="packId"
+            android:defaultValue="-1L"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/packSelectorFragment"
+        android:name="aut.dipterv.word_gardner.ui.practice.screens.pack_selector.PackSelectorFragment"
+        android:label="PackSelectorFragment">
+        <action
+            android:id="@+id/action_packSelectorFragment_to_editPackFragment"
+            app:destination="@id/editPackFragment" />
+        <action
+            android:id="@+id/action_packSelectorFragment_to_wordCardFragment"
+            app:destination="@id/landingPageFragment" />
+        <action
+            android:id="@+id/action_packSelectorFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/landingPageFragment"
+        android:name="aut.dipterv.word_gardner.ui.practice.screens.loaded_packs.LoadedPacksFragment"
+        android:label="LandingPageFragment">
+        <action
+            android:id="@+id/action_landingPageFragment_to_testFragment"
+            app:destination="@id/testFragment" />
+        <action
+            android:id="@+id/action_landingPageFragment_to_packSelectorFragment"
+            app:destination="@id/packSelectorFragment" />
+        <action
+            android:id="@+id/action_landingPageFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="aut.dipterv.word_gardner.ui.practice.screens.practice.PracticeFragment"
+        android:label="TestFragment">
+        <argument
+            android:name="hint"
+            app:argType="integer[]" />
+        <argument
+            android:name="input"
+            app:argType="integer[]" />
+        <argument
+            android:name="recommended"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_testFragment_to_landingPageFragment"
+            app:destination="@id/landingPageFragment" />
+        <action
+            android:id="@+id/action_testFragment_to_packSelectorFragment"
+            app:destination="@id/packSelectorFragment" />
+        <action
+            android:id="@+id/action_testFragment_self"
+            app:destination="@id/testFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="aut.dipterv.word_gardner.ui.browsing.screens.search.SearchFragment"
+        android:label="SearchFragment">
+        <action
+            android:id="@+id/action_searchFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_typeSearchFragment"
+            app:destination="@id/typeSearchFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_downloadDetailsFragment"
+            app:destination="@id/downloadDetailsFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_packSelectorFragment"
+            app:destination="@id/packSelectorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/downloadDetailsFragment"
+        android:name="aut.dipterv.word_gardner.ui.browsing.screens.download_details.DownloadDetailsFragment"
+        android:label="DownloadDetailsFragment" >
+        <argument
+            android:name="id"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <argument
+            android:name="type"
+            app:argType="aut.dipterv.word_gardner.ui.practice.screens.pack_selector.packs_of_category_recycler_view.models.SearchableModelBase$SearchableType" />
+        <action
+            android:id="@+id/action_downloadDetailsFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+        <action
+            android:id="@+id/action_downloadDetailsFragment_self"
+            app:destination="@id/downloadDetailsFragment" />
+        <action
+            android:id="@+id/action_downloadDetailsFragment_to_packSelectorFragment"
+            app:destination="@id/packSelectorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/typeSearchFragment"
+        android:name="aut.dipterv.word_gardner.ui.browsing.screens.type_search.TypeSearchFragment"
+        android:label="TypeSearchFragment">
+        <argument
+            android:name="filter"
+            app:argType="aut.dipterv.word_gardner.network_data.models.dtos.SearchFilter" />
+        <argument
+            android:name="searchableType"
+            app:argType="aut.dipterv.word_gardner.ui.practice.screens.pack_selector.packs_of_category_recycler_view.models.SearchableModelBase$SearchableType"
+            android:defaultValue="TYPE_SINGLE" />
+        <action
+            android:id="@+id/action_typeSearchFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+        <action
+            android:id="@+id/action_typeSearchFragment_to_downloadDetailsFragment"
+            app:destination="@id/downloadDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="aut.dipterv.word_gardner.ui.browsing.screens.user.UserFragment"
+        android:label="UserFragment">
+        <action
+            android:id="@+id/action_userFragment_to_downloadDetailsFragment"
+            app:destination="@id/downloadDetailsFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_typeSearchFragment"
+            app:destination="@id/typeSearchFragment" />
+        <argument
+            android:name="filter"
+            app:argType="aut.dipterv.word_gardner.network_data.models.dtos.SearchFilter" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="aut.dipterv.word_gardner.ui.practice.screens.settings.SettingsFragment"
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_landingPageFragment"
+            app:destination="@id/landingPageFragment" />
+    </fragment>
+    <action
+        android:id="@+id/action_to_landing"
+        app:destination="@id/landingPageFragment" />
+
+</navigation>

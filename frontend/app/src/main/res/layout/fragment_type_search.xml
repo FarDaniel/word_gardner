@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="aut.dipterv.word_gardner.ui.browsing.screens.type_search.TypeSearchFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <aut.dipterv.word_gardner.widgets.shared_widgets.SearchSwipeScreenWidget
+            android:id="@+id/search_swipe_screen_widget"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:entityCount="8"
+            android:layout_marginBottom="15dp" />
+
+        <TextView
+            android:id="@+id/actual_page_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:onClick="@{() -> fragment.openNumberPicker()}"
+            android:paddingStart="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/type_search_slash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> fragment.openNumberPicker()}"
+            android:padding="10dp"
+            android:text="/"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/actual_page_textview" />
+
+        <TextView
+            android:id="@+id/all_pages_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> fragment.openNumberPicker()}"
+            android:padding="10dp"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/type_search_slash" />
+
+        <aut.dipterv.word_gardner.widgets.shared_widgets.NumberPickerPopupWidget
+            android:id="@+id/type_search_extendable_number_picker"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <aut.dipterv.word_gardner.widgets.shared_widgets.OnlineSpinnerWidget
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

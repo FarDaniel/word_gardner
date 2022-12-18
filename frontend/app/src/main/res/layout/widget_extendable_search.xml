@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="widget"
+            type="aut.dipterv.word_gardner.widgets.fragment_extensions.ExtendableSearchWidget" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:paddingBottom="25dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/search_detailed_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_card_background"
+            android:paddingHorizontal="25dp"
+            android:paddingTop="100dp"
+            android:paddingBottom="25dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/search_category_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:textColorHint="@color/colorAccent"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/search_category_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="kategória"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/search_easy_card"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="15dp"
+                android:foreground="@drawable/border"
+                app:cardBackgroundColor="@color/transparent"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toStartOf="@+id/search_medium_card"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/search_medium_card">
+
+                <Button
+                    android:id="@+id/search_easy_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="0dp"
+                    android:background="@color/transparent"
+                    android:onClick="@{() -> widget.switchEasy()}"
+                    android:padding="0dp"
+                    android:text="@string/easy"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/search_medium_card"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:foreground="@drawable/border"
+                app:cardBackgroundColor="@color/transparent"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_category_layout">
+
+                <Button
+                    android:id="@+id/search_medium_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="0dp"
+                    android:background="@color/transparent"
+                    android:onClick="@{() -> widget.switchMedium()}"
+                    android:padding="0dp"
+                    android:text="@string/medium"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/search_hard_card"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="15dp"
+                android:foreground="@drawable/border"
+                app:cardBackgroundColor="@color/transparent"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/search_medium_card"
+                app:layout_constraintTop_toTopOf="@+id/search_medium_card">
+
+                <Button
+                    android:id="@+id/search_hard_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="0dp"
+                    android:background="@color/transparent"
+                    android:onClick="@{() -> widget.switchHard()}"
+                    android:padding="0dp"
+                    android:text="@string/hard"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/down_vote_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/downvote_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/search_upvote_percentage"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/search_upvote_percentage" />
+
+            <ImageView
+                android:id="@+id/up_vote_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/upvote_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/search_upvote_percentage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/search_upvote_percentage" />
+
+            <SeekBar
+                android:id="@+id/search_upvote_percentage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/up_vote_icon"
+                app:layout_constraintStart_toEndOf="@+id/down_vote_icon"
+                app:layout_constraintTop_toBottomOf="@+id/search_medium_card" />
+
+            <ImageView
+                android:id="@+id/search_close_detailed_search_image"
+                android:layout_width="55dp"
+                android:onClick="@{() -> widget.closeDetails()}"
+                android:layout_height="40dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginStart="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/arrow_up"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_upvote_percentage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/search_open_detailed_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mid_card_background"
+            android:paddingHorizontal="25dp"
+            android:paddingTop="125dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:onClick="@{() -> widget.openDetails()}"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="30dp"
+                android:foreground="@drawable/border"
+                app:cardBackgroundColor="@color/transparent"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <Button
+                    android:id="@+id/search_open_detailed_search_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> widget.openDetails()}"
+                    android:layout_gravity="center"
+                    android:layout_margin="0dp"
+                    android:background="@color/transparent"
+                    android:paddingVertical="0dp"
+                    android:text="Részletes keresés"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/search_fix_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/top_card_background"
+            android:paddingHorizontal="25dp"
+            android:paddingTop="25dp"
+            android:paddingBottom="35dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/search_search_imput_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginEnd="75dp"
+                android:textColorHint="@color/colorAccent"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/search_search_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:hint="keresés"
+                    android:paddingHorizontal="25dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <ImageView
+                android:id="@+id/search_search_button"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:onClick="@{() -> widget.makeSearchFilter()}"
+                android:scaleType="centerCrop"
+                android:src="@drawable/search_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/search_search_imput_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/search_search_imput_layout"
+                app:layout_constraintTop_toTopOf="@+id/search_search_imput_layout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="aut.dipterv.word_gardner.ui.browsing.screens.download_details.DownloadDetailsFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_gradient">
+
+        <ImageView
+            android:id="@+id/user_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/arrow_back"
+            android:onClick="@{() -> fragment.activity.onBackPressed()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:minWidth="155dp"
+            android:padding="5dp"
+            android:textColor="@color/fifty_gray"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:minWidth="155dp"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/category" />
+
+        <include
+            android:id="@+id/votes_view"
+            layout="@layout/item_votes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/name"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+        <androidx.cardview.widget.CardView
+
+            android:id="@+id/profile_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:onClick="@{() -> fragment.navigateToUserDetails()}"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="25dp"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/votes_view">
+
+            <ImageView
+                android:id="@+id/profile_picture_image_view"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/user_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:onClick="@{() -> fragment.navigateToUserDetails()}"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="@+id/category"
+            app:layout_constraintStart_toEndOf="@+id/profile_picture"
+            app:layout_constraintTop_toTopOf="@+id/profile_picture" />
+
+        <aut.dipterv.word_gardner.widgets.shared_widgets.SearchSwipeScreenWidget
+            android:id="@+id/search_swipe_screen_widget"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:entityCount="6"
+            app:layout_constraintBottom_toTopOf="@id/type_search_slash"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_picture" />
+
+        <TextView
+            android:id="@+id/actual_page_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:onClick="@{() -> fragment.openNumberPicker()}"
+            android:paddingStart="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/type_search_slash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> fragment.openNumberPicker()}"
+            android:padding="10dp"
+            android:text="/"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/actual_page_textview" />
+
+        <TextView
+            android:id="@+id/all_pages_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> fragment.openNumberPicker()}"
+            android:padding="10dp"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/type_search_slash" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/download_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:foreground="@drawable/border"
+            android:padding="5dp"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/all_pages_textview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/all_pages_textview"
+            app:layout_constraintTop_toTopOf="@id/all_pages_textview">
+
+            <Button
+                android:id="@+id/easy_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="0dp"
+                android:background="@color/transparent"
+                android:onClick="@{() -> fragment.download()}"
+                android:padding="0dp"
+                android:text="Letöltés"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.cardview.widget.CardView>
+
+        <aut.dipterv.word_gardner.widgets.shared_widgets.NumberPickerPopupWidget
+            android:id="@+id/type_search_extendable_number_picker"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <aut.dipterv.word_gardner.widgets.shared_widgets.OnlineSpinnerWidget
+            android:id="@+id/download_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

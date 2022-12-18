@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="widget"
+            type="aut.dipterv.word_gardner.widgets.fragment_extensions.InputToHintPickerWidget" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/hanged_man"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_margin="10dp"
+            android:onClick="@{() -> widget.switchHangedMan()}"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/hanged_man_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/hanged_man_icon" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/image"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_margin="10dp"
+            android:onClick="@{() -> widget.switchImage()}"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toEndOf="@+id/hanged_man"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/image_icon" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/sound"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_margin="10dp"
+            android:onClick="@{() -> widget.switchSound()}"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toEndOf="@+id/image"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/sound_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/sound_icon" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/letters"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_margin="10dp"
+            android:onClick="@{() -> widget.switchText()}"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sound"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/letters_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/text_icon" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_marginHorizontal="15dp"
+            app:cardBackgroundColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/deck"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cards"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="25dp"
+            android:onClick="@{() -> widget.switchCards()}"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="@+id/image"
+            app:layout_constraintStart_toStartOf="@+id/hanged_man"
+            app:layout_constraintTop_toBottomOf="@+id/hanged_man">
+
+            <ImageView
+                android:id="@+id/cards_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/cards_input_icon" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/deck"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="25dp"
+            android:onClick="@{() -> widget.switchDeck()}"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toEndOf="@+id/cards"
+            app:layout_constraintTop_toBottomOf="@+id/hanged_man">
+
+            <ImageView
+                android:id="@+id/deck_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/deck_input_icon" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/keyboard"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="25dp"
+            android:onClick="@{() -> widget.switchKeyboard()}"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toEndOf="@+id/deck"
+            app:layout_constraintTop_toBottomOf="@+id/hanged_man">
+
+            <ImageView
+                android:id="@+id/keyboard_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/kezboard_input_icon" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/letters_input"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp"
+            android:onClick="@{() -> widget.switchLetters()}"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="@+id/cards"
+            app:layout_constraintTop_toBottomOf="@+id/cards">
+
+            <ImageView
+                android:id="@+id/letters_input_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/text_icon" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/picture_card"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_margin="10dp"
+            android:onClick="@{() -> widget.switchPictureCard()}"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintStart_toEndOf="@+id/letters_input"
+            app:layout_constraintTop_toBottomOf="@+id/cards">
+
+            <ImageView
+                android:id="@+id/picture_card_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/image_icon" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/speech_card"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_margin="10dp"
+            android:onClick="@{() -> widget.switchSpeech()}"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintStart_toEndOf="@+id/picture_card"
+            app:layout_constraintTop_toBottomOf="@+id/cards">
+
+            <ImageView
+                android:id="@+id/speech_card_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/microphone_icon" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

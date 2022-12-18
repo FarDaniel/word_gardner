@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="widget"
+            type="aut.dipterv.word_gardner.widgets.shared_widgets.OnlineSpinnerWidget" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fifty_black">
+
+        <ProgressBar
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/error_popup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            app:cardBackgroundColor="@color/dark_purple"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/moving_background_two"
+                android:padding="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/error_text"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="Hálózati hiba akadt, próbáld később!"
+                    android:textColor="@color/white"
+                    android:textSize="35sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/reload"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:onClick="@{() -> widget.reload()}"
+                    android:src="@drawable/replay_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/error_text" />
+
+
+                <ImageView
+                    android:id="@+id/navigate_back"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:onClick="@{() -> widget.navigateBack()}"
+                    android:padding="10dp"
+                    android:src="@drawable/arrow_back"
+                    app:layout_constraintBottom_toBottomOf="@+id/reload"
+                    app:layout_constraintEnd_toStartOf="@+id/reload"
+                    app:layout_constraintTop_toTopOf="@+id/reload" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
